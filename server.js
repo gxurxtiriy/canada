@@ -49,7 +49,7 @@ app.get("/", (req, res) => {
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <meta name="google-site-verification" content="wSin18Y1jaEyj1vhiTPr159TKThSrMp6vyaA9K-ojOU" />
+  <meta name="google-site-verification" content="d-tVFEGSIg6li7C2_8MwQI6owZxohaV-rp8-FS0edAM" />
   <meta name="yandex-verification" content="5dc49383f889928c" />
   <title>${SITE_NAME} — Work From Home Jobs Canada 2025 | ${TOTAL_JOBS.toLocaleString()} Jobs</title>
   <meta name="description" content="Find ${TOTAL_JOBS.toLocaleString()} remote and work-from-home jobs in Canada. Top companies hiring now — Netflix, Amazon, Google, Apple, Delta Airlines and more!"/>
@@ -335,7 +335,7 @@ app.get("/jobs/:id", (req, res) => {
   <div class="apply-box">
     <h3>🚀 Ready to Apply?</h3>
     <p>Join ${job.company} and start your remote career in Canada today!</p>
-    <a class="btn-apply" href="https://remotejob09.job4intern.com/pages/job-application" target="_blank" rel="noopener">✅ Apply Now — It's Free</a>
+    <a class="btn-apply" href="https://ouchi.wowseries.lovestoblog.com/apply-now" target="_blank" rel="noopener">✅ Apply Now — It's Free</a>
   </div>
 
   <div class="job-desc">
