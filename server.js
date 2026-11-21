@@ -1,5 +1,5 @@
 // ============================================================
-//  Germany Remote Jobs Portal — Express Server
+//  Canada Remote Jobs Portal — Express Server
 //  10 Lakh (1,000,000) Job Pages | JSON-LD Schema | Sitemaps
 // ============================================================
 
@@ -12,8 +12,8 @@ const PORT = process.env.PORT || 3000;
 const JOBS_PER_PAGE = 20;
 const SITEMAP_CHUNK = 1000;
 const TOTAL_SITEMAPS = Math.ceil(TOTAL_JOBS / SITEMAP_CHUNK);
-const SITE_NAME = "GermanyJobsHub.de";
-const BASE_URL = process.env.BASE_URL || "https://germanyremotejobs-production.up.railway.app";
+const SITE_NAME = "CanadaJobsHub.ca";
+const BASE_URL = process.env.BASE_URL || "https://canadajobs-production.up.railway.app";
 
 app.use(compression());
 app.use(express.static("public"));
@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
       <div class="meta">
         <span class="${j.isRemote ? "remote-badge" : "onsite-badge"}">${j.isRemote ? "🏠 Remote" : "🏢 On-Site"}</span>
         <span class="salary">💰 ${j.salary}</span>
-        <span class="location">📍 ${j.city}, DE</span>
+        <span class="location">📍 ${j.city}, CA</span>
       </div>
     </div>`
     )
@@ -51,8 +51,8 @@ app.get("/", (req, res) => {
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <meta name="google-site-verification" content="wSin18Y1jaEyj1vhiTPr159TKThSrMp6vyaA9K-ojOU" />
   <meta name="yandex-verification" content="5dc49383f889928c" />
-  <title>${SITE_NAME} — Work From Home Jobs Germany 2025 | ${TOTAL_JOBS.toLocaleString()} Jobs</title>
-  <meta name="description" content="Find ${TOTAL_JOBS.toLocaleString()} remote and work-from-home jobs in the Germany. Top companies hiring now — Netflix, Amazon, Google, Apple, Delta Airlines and more!"/>
+  <title>${SITE_NAME} — Work From Home Jobs Canada 2025 | ${TOTAL_JOBS.toLocaleString()} Jobs</title>
+  <meta name="description" content="Find ${TOTAL_JOBS.toLocaleString()} remote and work-from-home jobs in Canada. Top companies hiring now — Netflix, Amazon, Google, Apple, Delta Airlines and more!"/>
   <meta name="robots" content="index,follow"/>
   <link rel="canonical" href="${BASE_URL}/"/>
   <script type="application/ld+json">${JSON.stringify({
@@ -60,7 +60,7 @@ app.get("/", (req, res) => {
     "@type": "WebSite",
     name: SITE_NAME,
     url: BASE_URL,
-    description: `${TOTAL_JOBS.toLocaleString()} Work From Home Jobs in Germany`,
+    description: `${TOTAL_JOBS.toLocaleString()} Work From Home Jobs in Canada`,
     potentialAction: {
       "@type": "SearchAction",
       target: `${BASE_URL}/jobs?search={search_term_string}`,
@@ -70,36 +70,36 @@ app.get("/", (req, res) => {
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f8;color:#222}
-    header{background:linear-gradient(135deg,#000000,#dd0000);color:#fff;padding:40px 20px;text-align:center}
+    header{background:linear-gradient(135deg,#d52b1e,#a31a10);color:#fff;padding:40px 20px;text-align:center}
     header h1{font-size:2.2rem;margin-bottom:10px}
     header p{font-size:1.1rem;opacity:.9}
     .stats-bar{background:#fff;display:flex;justify-content:center;gap:40px;padding:18px;border-bottom:2px solid #e8ecf0;flex-wrap:wrap}
-    .stat{text-align:center}.stat b{display:block;font-size:1.5rem;color:#dd0000}
+    .stat{text-align:center}.stat b{display:block;font-size:1.5rem;color:#d52b1e}
     .stat span{font-size:.85rem;color:#666}
-    nav{background:#000000;padding:10px 20px;display:flex;gap:15px;flex-wrap:wrap}
+    nav{background:#a31a10;padding:10px 20px;display:flex;gap:15px;flex-wrap:wrap}
     nav a{color:#fff;text-decoration:none;font-size:.95rem;padding:5px 12px;border-radius:4px;transition:background .2s}
     nav a:hover{background:rgba(255,255,255,.2)}
     .container{max-width:1200px;margin:30px auto;padding:0 15px}
-    h2{font-size:1.4rem;margin-bottom:20px;color:#dd0000;border-left:4px solid #ffce00;padding-left:12px}
+    h2{font-size:1.4rem;margin-bottom:20px;color:#d52b1e;border-left:4px solid #ffce00;padding-left:12px}
     .jobs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px;margin-bottom:40px}
-    .job-card{background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08);transition:transform .2s,box-shadow .2s;border-top:3px solid #dd0000}
+    .job-card{background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08);transition:transform .2s,box-shadow .2s;border-top:3px solid #d52b1e}
     .job-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.13)}
-    .company-tag{font-size:.78rem;background:#e8f0fe;color:#dd0000;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;font-weight:600}
+    .company-tag{font-size:.78rem;background:#e8f0fe;color:#d52b1e;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;font-weight:600}
     .job-card h3{font-size:1rem;margin-bottom:12px;line-height:1.4}
     .job-card h3 a{color:#1a1a2e;text-decoration:none}
-    .job-card h3 a:hover{color:#dd0000}
+    .job-card h3 a:hover{color:#d52b1e}
     .meta{display:flex;flex-wrap:wrap;gap:8px;font-size:.82rem}
     .remote-badge{background:#d4edda;color:#155724;padding:2px 8px;border-radius:12px}
     .onsite-badge{background:#d1ecf1;color:#0c5460;padding:2px 8px;border-radius:12px}
     .salary{color:#28a745;font-weight:600}
     .location{color:#666}
     .company-cloud{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
-    .company-chip{background:#fff;border:1px solid #000000;color:#dd0000;padding:6px 14px;border-radius:20px;text-decoration:none;font-size:.88rem;transition:all .2s}
-    .company-chip:hover{background:#000000;color:#fff}
+    .company-chip{background:#fff;border:1px solid #a31a10;color:#d52b1e;padding:6px 14px;border-radius:20px;text-decoration:none;font-size:.88rem;transition:all .2s}
+    .company-chip:hover{background:#a31a10;color:#fff}
     .view-all{text-align:center;margin:20px 0 40px}
-    .btn{background:#dd0000;color:#fff;padding:12px 30px;border-radius:6px;text-decoration:none;font-size:1rem;font-weight:600;display:inline-block;transition:background .2s}
-    .btn:hover{background:#a50e1e}
-    .btn-blue{background:#000000}.btn-blue:hover{background:#002d8a}
+    .btn{background:#d52b1e;color:#fff;padding:12px 30px;border-radius:6px;text-decoration:none;font-size:1rem;font-weight:600;display:inline-block;transition:background .2s}
+    .btn:hover{background:#a31a10}
+    .btn-blue{background:#a31a10}.btn-blue:hover{background:#7a120a}
     footer{background:#1a1a2e;color:#aaa;text-align:center;padding:30px;margin-top:40px}
     footer a{color:#7ba7f7}
     @media(max-width:600px){header h1{font-size:1.5rem}.stats-bar{gap:20px}}
@@ -107,14 +107,14 @@ app.get("/", (req, res) => {
 </head>
 <body>
 <header>
-  <h1>🇩🇪 Germany Work From Home Jobs</h1>
+  <h1>🇨🇦 Canada Work From Home Jobs</h1>
   <p>${TOTAL_JOBS.toLocaleString()} Remote & Online Jobs | Top International Companies Hiring Now</p>
 </header>
 <div class="stats-bar">
   <div class="stat"><b>${TOTAL_JOBS.toLocaleString()}</b><span>Total Jobs</span></div>
   <div class="stat"><b>${COMPANIES.length}</b><span>Companies</span></div>
-  <div class="stat"><b>100%</b><span>Germany</span></div>
-  <div class="stat"><b>€25K–€300K</b><span>Salary Range/mo</span></div>
+  <div class="stat"><b>100%</b><span>Canada</span></div>
+  <div class="stat"><b>C$3K–C$30K</b><span>Salary Range/mo</span></div>
 </div>
 <nav>
   <a href="/">🏠 Home</a>
@@ -134,7 +134,7 @@ app.get("/", (req, res) => {
 </div>
 <footer>
   <p>© 2025 ${SITE_NAME} | <a href="/sitemap.xml">Sitemap</a> | <a href="/robots.txt">robots.txt</a></p>
-  <p style="margin-top:8px;font-size:.85rem">Work From Home Jobs Germany | Remote Jobs DE | Online Jobs Germany</p>
+  <p style="margin-top:8px;font-size:.85rem">Work From Home Jobs Canada | Remote Jobs CA | Online Jobs Canada</p>
 </footer>
 </body>
 </html>`);
@@ -165,7 +165,7 @@ app.get("/jobs", (req, res) => {
       <div class="meta">
         <span class="${j.isRemote ? "remote-badge" : "onsite-badge"}">${j.isRemote ? "🏠 Remote" : "🏢 On-Site"}</span>
         <span class="salary">💰 ${j.salary}</span>
-        <span class="location">📍 ${j.city}, Germany</span>
+        <span class="location">📍 ${j.city}, Canada</span>
         <span style="color:#888">📅 ${j.datePosted}</span>
       </div>
     </div>`
@@ -182,8 +182,8 @@ app.get("/jobs", (req, res) => {
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Work From Home Jobs Germany Page ${page} | ${SITE_NAME}</title>
-  <meta name="description" content="Browse ${TOTAL_JOBS.toLocaleString()} work from home and remote jobs in Germany. Page ${page} of ${totalPages}."/>
+  <title>Work From Home Jobs Canada Page ${page} | ${SITE_NAME}</title>
+  <meta name="description" content="Browse ${TOTAL_JOBS.toLocaleString()} work from home and remote jobs in Canada. Page ${page} of ${totalPages}."/>
   <meta name="robots" content="index,follow"/>
   <link rel="canonical" href="${BASE_URL}/jobs?page=${page}"/>
   ${page > 1 ? `<link rel="prev" href="${BASE_URL}/jobs?page=${page - 1}"/>` : ""}
@@ -191,36 +191,36 @@ app.get("/jobs", (req, res) => {
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f8;color:#222}
-    header{background:linear-gradient(135deg,#000000,#dd0000);color:#fff;padding:25px 20px;text-align:center}
+    header{background:linear-gradient(135deg,#d52b1e,#a31a10);color:#fff;padding:25px 20px;text-align:center}
     header h1{font-size:1.8rem}
-    nav{background:#000000;padding:10px 20px;display:flex;gap:15px;flex-wrap:wrap}
+    nav{background:#a31a10;padding:10px 20px;display:flex;gap:15px;flex-wrap:wrap}
     nav a{color:#fff;text-decoration:none;font-size:.95rem;padding:5px 12px;border-radius:4px}
     nav a:hover{background:rgba(255,255,255,.2)}
     .container{max-width:1200px;margin:30px auto;padding:0 15px}
     .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
-    .filter-bar a{padding:7px 18px;border-radius:20px;text-decoration:none;font-size:.9rem;border:1px solid #000000;color:#dd0000;background:#fff}
-    .filter-bar a.active,.filter-bar a:hover{background:#000000;color:#fff}
+    .filter-bar a{padding:7px 18px;border-radius:20px;text-decoration:none;font-size:.9rem;border:1px solid #a31a10;color:#d52b1e;background:#fff}
+    .filter-bar a.active,.filter-bar a:hover{background:#a31a10;color:#fff}
     .page-info{color:#555;margin-bottom:15px;font-size:.95rem}
     .jobs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px;margin-bottom:30px}
-    .job-card{background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08);border-top:3px solid #dd0000}
+    .job-card{background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08);border-top:3px solid #d52b1e}
     .job-card:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(0,0,0,.12);transition:.2s}
-    .company-tag{font-size:.78rem;background:#e8f0fe;color:#dd0000;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;font-weight:600}
+    .company-tag{font-size:.78rem;background:#e8f0fe;color:#d52b1e;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;font-weight:600}
     .job-card h3{font-size:1rem;margin-bottom:12px;line-height:1.4}
     .job-card h3 a{color:#1a1a2e;text-decoration:none}
-    .job-card h3 a:hover{color:#dd0000}
+    .job-card h3 a:hover{color:#d52b1e}
     .meta{display:flex;flex-wrap:wrap;gap:8px;font-size:.82rem}
     .remote-badge{background:#d4edda;color:#155724;padding:2px 8px;border-radius:12px}
     .onsite-badge{background:#d1ecf1;color:#0c5460;padding:2px 8px;border-radius:12px}
     .salary{color:#28a745;font-weight:600}
     .pagination{display:flex;justify-content:center;gap:15px;padding:20px 0}
-    .btn{background:#dd0000;color:#fff;padding:10px 22px;border-radius:6px;text-decoration:none;font-size:.95rem;font-weight:600}
-    .btn-blue{background:#000000}.btn:hover{opacity:.9}
+    .btn{background:#d52b1e;color:#fff;padding:10px 22px;border-radius:6px;text-decoration:none;font-size:.95rem;font-weight:600}
+    .btn-blue{background:#a31a10}.btn:hover{opacity:.9}
     footer{background:#1a1a2e;color:#aaa;text-align:center;padding:25px}
     footer a{color:#7ba7f7}
   </style>
 </head>
 <body>
-<header><h1>🇩🇪 Germany Remote Jobs — All Listings</h1></header>
+<header><h1>🇨🇦 Canada Remote Jobs — All Listings</h1></header>
 <nav>
   <a href="/">🏠 Home</a>
   <a href="/jobs">All Jobs</a>
@@ -259,25 +259,25 @@ app.get("/jobs/:id", (req, res) => {
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>${job.title} | ${SITE_NAME}</title>
-  <meta name="description" content="Apply now: ${job.title} at ${job.company}. Salary: ${job.salary}. Location: ${job.location}. Work from home job in the Germany."/>
+  <meta name="description" content="Apply now: ${job.title} at ${job.company}. Salary: ${job.salary}. Location: ${job.location}. Work from home job in Canada."/>
   <meta name="robots" content="index,follow"/>
   <link rel="canonical" href="${BASE_URL}/jobs/${id}"/>
   <meta property="og:title" content="${job.title}"/>
-  <meta property="og:description" content="Apply for ${job.title} at ${job.company}. ${job.salary}. Germany remote job."/>
+  <meta property="og:description" content="Apply for ${job.title} at ${job.company}. ${job.salary}. Canada remote job."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="${BASE_URL}/jobs/${id}"/>
   <script type="application/ld+json">${JSON.stringify(job.schema, null, 2)}</script>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f8;color:#222}
-    header{background:linear-gradient(135deg,#000000,#dd0000);color:#fff;padding:20px;text-align:center}
+    header{background:linear-gradient(135deg,#d52b1e,#a31a10);color:#fff;padding:20px;text-align:center}
     header a{color:#fff;text-decoration:none;font-size:.9rem;opacity:.85}
-    nav{background:#000000;padding:10px 20px;display:flex;gap:15px;flex-wrap:wrap}
+    nav{background:#a31a10;padding:10px 20px;display:flex;gap:15px;flex-wrap:wrap}
     nav a{color:#fff;text-decoration:none;font-size:.95rem;padding:5px 12px;border-radius:4px}
     nav a:hover{background:rgba(255,255,255,.2)}
     .container{max-width:900px;margin:30px auto;padding:0 15px}
-    .job-header{background:#fff;border-radius:12px;padding:30px;box-shadow:0 2px 12px rgba(0,0,0,.09);margin-bottom:25px;border-top:4px solid #000000}
-    .company-tag{font-size:.85rem;background:#e8f0fe;color:#dd0000;padding:5px 15px;border-radius:20px;display:inline-block;margin-bottom:15px;font-weight:700}
+    .job-header{background:#fff;border-radius:12px;padding:30px;box-shadow:0 2px 12px rgba(0,0,0,.09);margin-bottom:25px;border-top:4px solid #a31a10}
+    .company-tag{font-size:.85rem;background:#e8f0fe;color:#d52b1e;padding:5px 15px;border-radius:20px;display:inline-block;margin-bottom:15px;font-weight:700}
     .job-header h1{font-size:1.5rem;line-height:1.3;margin-bottom:15px;color:#1a1a2e}
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
     .badge{padding:5px 14px;border-radius:20px;font-size:.88rem;font-weight:600}
@@ -285,22 +285,22 @@ app.get("/jobs/:id", (req, res) => {
     .badge-onsite{background:#d1ecf1;color:#0c5460}
     .badge-salary{background:#fff3cd;color:#856404}
     .badge-type{background:#f3e8ff;color:#5b21b6}
-    .badge-ph{background:#fde8e8;color:#dd0000}
+    .badge-ca{background:#fde8e8;color:#d52b1e}
     .info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:15px;margin-bottom:20px}
     .info-item{background:#f8f9fa;padding:12px;border-radius:8px}
     .info-item label{font-size:.78rem;color:#666;display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
     .info-item span{font-weight:600;color:#1a1a2e}
-    .apply-box{background:linear-gradient(135deg,#000000,#dd0000);border-radius:10px;padding:25px;text-align:center;margin-bottom:25px}
+    .apply-box{background:linear-gradient(135deg,#d52b1e,#a31a10);border-radius:10px;padding:25px;text-align:center;margin-bottom:25px}
     .apply-box h3{color:#fff;font-size:1.2rem;margin-bottom:5px}
     .apply-box p{color:rgba(255,255,255,.85);margin-bottom:20px;font-size:.95rem}
-    .btn-apply{background:#fff;color:#dd0000;padding:14px 40px;border-radius:8px;text-decoration:none;font-size:1rem;font-weight:700;display:inline-block;cursor:pointer;border:none;transition:.2s}
+    .btn-apply{background:#fff;color:#d52b1e;padding:14px 40px;border-radius:8px;text-decoration:none;font-size:1rem;font-weight:700;display:inline-block;cursor:pointer;border:none;transition:.2s}
     .btn-apply:hover{background:#f0f4f8;transform:scale(1.03)}
     .job-desc{background:#fff;border-radius:12px;padding:30px;box-shadow:0 2px 12px rgba(0,0,0,.09);margin-bottom:25px;line-height:1.7}
-    .job-desc h2{font-size:1.2rem;margin-bottom:20px;color:#dd0000;border-bottom:2px solid #e8f0fe;padding-bottom:10px}
+    .job-desc h2{font-size:1.2rem;margin-bottom:20px;color:#d52b1e;border-bottom:2px solid #e8f0fe;padding-bottom:10px}
 
     .nav-jobs{display:flex;justify-content:space-between;margin-bottom:30px}
-    .btn-nav{background:#000000;color:#fff;padding:8px 20px;border-radius:6px;text-decoration:none;font-size:.9rem}
-    .btn-nav:hover{background:#002d8a}
+    .btn-nav{background:#a31a10;color:#fff;padding:8px 20px;border-radius:6px;text-decoration:none;font-size:.9rem}
+    .btn-nav:hover{background:#7a120a}
     footer{background:#1a1a2e;color:#aaa;text-align:center;padding:25px}
     footer a{color:#7ba7f7}
 
@@ -322,7 +322,7 @@ app.get("/jobs/:id", (req, res) => {
       <span class="badge ${job.isRemote ? "badge-remote" : "badge-onsite"}">${job.isRemote ? "🏠 Work From Home" : "🏢 On-Site"}</span>
       <span class="badge badge-salary">💰 ${job.salary}</span>
       <span class="badge badge-type">⏰ ${job.employmentType.replace("_", " ")}</span>
-      <span class="badge badge-ph">🇩🇪 Germany</span>
+      <span class="badge badge-ca">🇨🇦 Canada</span>
     </div>
     <div class="info-grid">
       <div class="info-item"><label>Company</label><span>${job.company}</span></div>
@@ -336,7 +336,7 @@ app.get("/jobs/:id", (req, res) => {
 
   <div class="apply-box">
     <h3>🚀 Ready to Apply?</h3>
-    <p>Join ${job.company} and start your remote career in the Germany today!</p>
+    <p>Join ${job.company} and start your remote career in Canada today!</p>
     <a class="btn-apply" href="https://remotejob09.job4intern.com/pages/job-application" target="_blank" rel="noopener">✅ Apply Now — It's Free</a>
   </div>
 
@@ -386,7 +386,7 @@ app.get("/company/:name", (req, res) => {
       <div class="meta">
         <span class="${j.isRemote ? "remote-badge" : "onsite-badge"}">${j.isRemote ? "🏠 Remote" : "🏢 On-Site"}</span>
         <span class="salary">💰 ${j.salary}</span>
-        <span>📍 ${j.city}, DE</span>
+        <span>📍 ${j.city}, CA</span>
       </div>
     </div>`
     )
@@ -401,37 +401,37 @@ app.get("/company/:name", (req, res) => {
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>${company} Work From Home Jobs Germany 2025 | ${SITE_NAME}</title>
-  <meta name="description" content="Browse ${JOBS_PER_COMPANY.toLocaleString()} remote jobs at ${company} for Germany applicants. Work from home, competitive salary, apply now!"/>
+  <title>${company} Work From Home Jobs Canada 2025 | ${SITE_NAME}</title>
+  <meta name="description" content="Browse ${JOBS_PER_COMPANY.toLocaleString()} remote jobs at ${company} for Canada applicants. Work from home, competitive salary, apply now!"/>
   <meta name="robots" content="index,follow"/>
   <link rel="canonical" href="${BASE_URL}/company/${encodeURIComponent(company)}"/>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f8;color:#222}
-    header{background:linear-gradient(135deg,#000000,#dd0000);color:#fff;padding:30px 20px;text-align:center}
-    nav{background:#000000;padding:10px 20px;display:flex;gap:15px;flex-wrap:wrap}
+    header{background:linear-gradient(135deg,#d52b1e,#a31a10);color:#fff;padding:30px 20px;text-align:center}
+    nav{background:#a31a10;padding:10px 20px;display:flex;gap:15px;flex-wrap:wrap}
     nav a{color:#fff;text-decoration:none;font-size:.95rem;padding:5px 12px;border-radius:4px}
     nav a:hover{background:rgba(255,255,255,.2)}
     .container{max-width:1100px;margin:30px auto;padding:0 15px}
     .page-info{margin-bottom:15px;color:#555}
     .jobs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-bottom:25px}
-    .job-card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08);border-top:3px solid #dd0000}
+    .job-card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08);border-top:3px solid #d52b1e}
     .job-card h3{font-size:.98rem;margin-bottom:10px;line-height:1.4}
-    .job-card h3 a{color:#1a1a2e;text-decoration:none}.job-card h3 a:hover{color:#dd0000}
+    .job-card h3 a{color:#1a1a2e;text-decoration:none}.job-card h3 a:hover{color:#d52b1e}
     .meta{display:flex;flex-wrap:wrap;gap:8px;font-size:.82rem}
     .remote-badge{background:#d4edda;color:#155724;padding:2px 8px;border-radius:12px}
     .onsite-badge{background:#d1ecf1;color:#0c5460;padding:2px 8px;border-radius:12px}
     .salary{color:#28a745;font-weight:600}
     .pagination{display:flex;justify-content:center;gap:15px;padding:20px 0}
-    .btn{background:#dd0000;color:#fff;padding:10px 22px;border-radius:6px;text-decoration:none;font-size:.95rem;font-weight:600}
-    .btn-blue{background:#000000}.btn:hover{opacity:.9}
+    .btn{background:#d52b1e;color:#fff;padding:10px 22px;border-radius:6px;text-decoration:none;font-size:.95rem;font-weight:600}
+    .btn-blue{background:#a31a10}.btn:hover{opacity:.9}
     footer{background:#1a1a2e;color:#aaa;text-align:center;padding:25px}
     footer a{color:#7ba7f7}
   </style>
 </head>
 <body>
 <header>
-  <h1>🇩🇪 ${company} — Germany Work From Home Jobs</h1>
+  <h1>🇨🇦 ${company} — Canada Work From Home Jobs</h1>
   <p>${JOBS_PER_COMPANY.toLocaleString()} Jobs Available | Apply Today</p>
 </header>
 <nav>
@@ -440,7 +440,7 @@ app.get("/company/:name", (req, res) => {
   <a href="/companies">All Companies</a>
 </nav>
 <div class="container">
-  <p class="page-info">Page <strong>${page}</strong> of <strong>${totalPages}</strong> — Showing ${JOBS_PER_COMPANY.toLocaleString()} ${company} jobs for Germany</p>
+  <p class="page-info">Page <strong>${page}</strong> of <strong>${totalPages}</strong> — Showing ${JOBS_PER_COMPANY.toLocaleString()} ${company} jobs for Canada</p>
   <div class="jobs-grid">${rows}</div>
   <div class="pagination">${prevLink}${nextLink}</div>
 </div>
@@ -464,30 +464,30 @@ app.get("/companies", (req, res) => {
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>All Companies Hiring in Germany | ${SITE_NAME}</title>
-  <meta name="description" content="${COMPANIES.length} top international companies hiring remote workers from Germany. Browse ${TOTAL_JOBS.toLocaleString()} jobs."/>
+  <title>All Companies Hiring in Canada | ${SITE_NAME}</title>
+  <meta name="description" content="${COMPANIES.length} top international companies hiring remote workers from Canada. Browse ${TOTAL_JOBS.toLocaleString()} jobs."/>
   <meta name="robots" content="index,follow"/>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f8;color:#222}
-    header{background:linear-gradient(135deg,#000000,#dd0000);color:#fff;padding:30px;text-align:center}
-    nav{background:#000000;padding:10px 20px;display:flex;gap:15px;flex-wrap:wrap}
+    header{background:linear-gradient(135deg,#d52b1e,#a31a10);color:#fff;padding:30px;text-align:center}
+    nav{background:#a31a10;padding:10px 20px;display:flex;gap:15px;flex-wrap:wrap}
     nav a{color:#fff;text-decoration:none;font-size:.95rem;padding:5px 12px;border-radius:4px}
     nav a:hover{background:rgba(255,255,255,.2)}
     .container{max-width:1200px;margin:30px auto;padding:0 15px}
     .companies-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
-    .company-card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08);text-decoration:none;border-top:3px solid #dd0000;transition:.2s;display:block}
+    .company-card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.08);text-decoration:none;border-top:3px solid #d52b1e;transition:.2s;display:block}
     .company-card:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(0,0,0,.13)}
     .cname{font-weight:700;color:#1a1a2e;margin-bottom:5px}
-    .cjobs{color:#dd0000;font-size:.85rem;font-weight:600}
-    h2{font-size:1.3rem;margin-bottom:20px;color:#dd0000;border-left:4px solid #ffce00;padding-left:12px}
+    .cjobs{color:#d52b1e;font-size:.85rem;font-weight:600}
+    h2{font-size:1.3rem;margin-bottom:20px;color:#d52b1e;border-left:4px solid #ffce00;padding-left:12px}
     footer{background:#1a1a2e;color:#aaa;text-align:center;padding:25px;margin-top:40px}
     footer a{color:#7ba7f7}
   </style>
 </head>
 <body>
 <header>
-  <h1>🇩🇪 All Companies Hiring in Germany</h1>
+  <h1>🇨🇦 All Companies Hiring in Canada</h1>
   <p>${COMPANIES.length} Companies | ${TOTAL_JOBS.toLocaleString()} Total Jobs</p>
 </header>
 <nav>
@@ -495,7 +495,7 @@ app.get("/companies", (req, res) => {
   <a href="/jobs">All Jobs</a>
 </nav>
 <div class="container">
-  <h2>Top International Companies Hiring Germans (Work From Home)</h2>
+  <h2>Top International Companies Hiring Canadians (Work From Home)</h2>
   <div class="companies-grid">${companyCards}</div>
 </div>
 <footer><p>© 2025 ${SITE_NAME} | <a href="/sitemap.xml">Sitemap</a></p></footer>
@@ -594,7 +594,7 @@ ${urls}
 
 // ─── START ────────────────────────────────────────────────────────────────────
 app.listen(PORT, () => {
-  console.log(`🇩🇪 Germany Remote Jobs Portal running on http://localhost:${PORT}`);
+  console.log(`🇨🇦 Canada Remote Jobs Portal running on http://localhost:${PORT}`);
   console.log(`📊 Total Jobs: ${TOTAL_JOBS.toLocaleString()}`);
   console.log(`🏢 Companies: ${COMPANIES.length}`);
   console.log(`📄 Sitemaps: ${TOTAL_SITEMAPS}`);
