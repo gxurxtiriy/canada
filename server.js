@@ -143,7 +143,7 @@ app.get("/", (req, res) => {
 // ─── JOB LISTING PAGE ────────────────────────────────────────────────────────
 app.get("/jobs", (req, res) => {
   const page = Math.max(1, parseInt(req.query.page) || 1);
-  const typeFilter = req.query.type; // "remote" | "onsite"
+  const typeFilter = req.query.type;
   const start = (page - 1) * JOBS_PER_PAGE + 1;
   const end = Math.min(start + JOBS_PER_PAGE - 1, TOTAL_JOBS);
   const totalPages = Math.ceil(TOTAL_JOBS / JOBS_PER_PAGE);
@@ -297,13 +297,11 @@ app.get("/jobs/:id", (req, res) => {
     .btn-apply:hover{background:#f0f4f8;transform:scale(1.03)}
     .job-desc{background:#fff;border-radius:12px;padding:30px;box-shadow:0 2px 12px rgba(0,0,0,.09);margin-bottom:25px;line-height:1.7}
     .job-desc h2{font-size:1.2rem;margin-bottom:20px;color:#d52b1e;border-bottom:2px solid #e8f0fe;padding-bottom:10px}
-
     .nav-jobs{display:flex;justify-content:space-between;margin-bottom:30px}
     .btn-nav{background:#a31a10;color:#fff;padding:8px 20px;border-radius:6px;text-decoration:none;font-size:.9rem}
     .btn-nav:hover{background:#7a120a}
     footer{background:#1a1a2e;color:#aaa;text-align:center;padding:25px}
     footer a{color:#7ba7f7}
-
   </style>
 </head>
 <body>
@@ -321,7 +319,7 @@ app.get("/jobs/:id", (req, res) => {
     <div class="badges">
       <span class="badge ${job.isRemote ? "badge-remote" : "badge-onsite"}">${job.isRemote ? "🏠 Work From Home" : "🏢 On-Site"}</span>
       <span class="badge badge-salary">💰 ${job.salary}</span>
-      <span class="badge badge-type">⏰ ${job.employmentType.replace("_", " ")}</span>
+      <span class="badge badge-type">⏰ ${job.jobType.replace("_", " ")}</span>
       <span class="badge badge-ca">🇨🇦 Canada</span>
     </div>
     <div class="info-grid">
@@ -330,7 +328,7 @@ app.get("/jobs/:id", (req, res) => {
       <div class="info-item"><label>Salary</label><span>${job.salary}</span></div>
       <div class="info-item"><label>Date Posted</label><span>${job.datePosted}</span></div>
       <div class="info-item"><label>Valid Through</label><span>${job.validThrough}</span></div>
-      <div class="info-item"><label>Job Type</label><span>${job.employmentType.replace("_", " ")}</span></div>
+      <div class="info-item"><label>Job Type</label><span>${job.jobType.replace("_", " ")}</span></div>
     </div>
   </div>
 
@@ -351,8 +349,6 @@ app.get("/jobs/:id", (req, res) => {
   </div>
 </div>
 
-
-
 <footer><p>© 2025 ${SITE_NAME} | <a href="/sitemap.xml">Sitemap</a> | <a href="/robots.txt">robots.txt</a></p></footer>
 
 </body>
@@ -362,7 +358,6 @@ app.get("/jobs/:id", (req, res) => {
 // ─── COMPANY PAGE ─────────────────────────────────────────────────────────────
 app.get("/company/:name", (req, res) => {
   const name = decodeURIComponent(req.params.name);
-  const { COMPANIES } = require("./jobData");
   const compIdx = COMPANIES.findIndex((c) => c.toLowerCase() === name.toLowerCase());
   if (compIdx === -1) return res.status(404).send("<h1>Company Not Found</h1>");
 
@@ -451,7 +446,6 @@ app.get("/company/:name", (req, res) => {
 
 // ─── ALL COMPANIES PAGE ───────────────────────────────────────────────────────
 app.get("/companies", (req, res) => {
-  const { COMPANIES } = require("./jobData");
   const companyCards = COMPANIES.map(
     (c) => `<a href="/company/${encodeURIComponent(c)}" class="company-card">
     <div class="cname">${c}</div>
@@ -575,7 +569,6 @@ ${urls.join("\n")}
 
 // ─── COMPANIES SITEMAP ────────────────────────────────────────────────────────
 app.get("/sitemap-companies.xml", (req, res) => {
-  const { COMPANIES } = require("./jobData");
   const urls = COMPANIES.map(
     (c) => `  <url>
     <loc>${BASE_URL}/company/${encodeURIComponent(c)}</loc>
