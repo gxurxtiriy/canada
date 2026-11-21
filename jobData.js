@@ -11,7 +11,6 @@ const COUNTRY = {
 
 // ─── ALL COMPANIES (1,000 jobs each = 1,000,000 total) ───────────────────────
 const COMPANIES = [
-  // User-specified companies
   "Netflix",
   "Delta Airlines",
   "Southwest Airlines",
@@ -114,7 +113,6 @@ const COMPANIES = [
   "Sun Life",
   "Great-West Lifeco",
   "Canada Life",
-  "Shopify",
   "OpenText",
   "Constellation Software",
   "CGI Group",
@@ -125,8 +123,6 @@ const COMPANIES = [
   "Loblaws",
   "Sobeys",
   "Metro Inc.",
-  "Costco Canada",
-  "Walmart Canada",
   "Canadian Tire",
   "Tim Hortons",
   "Lululemon",
@@ -154,28 +150,20 @@ const COMPANIES = [
   "Power Corporation of Canada",
   "Brookfield Asset Management",
   "George Weston",
-  "Metro",
   "Empire Company",
   "Restaurant Brands International",
-  "Magna",
   "Celestica",
   "SNC-Lavalin",
   "Stantec",
   "WSP Global",
   "AtkinsRéalis",
   "CAE",
-  "CAE Inc.",
   "Ritchie Bros. Auctioneers",
   "Toromont Industries",
   "Finning International",
   "Wajax",
-  "Rocky Mountain Dealerships",
-  "Cervus Equipment",
   "Ag Growth International",
   "Buhler Industries",
-  "Linamar",
-  "Martinrea International",
-  "Magna International",
   "ABC Technologies",
   "Deco Automotive",
   "A.P. Plasman",
@@ -194,8 +182,6 @@ const COMPANIES = [
   "Canada Nickel",
   "FPX Nickel",
   "Sherritt International",
-  "Sherritt",
-  "Nautilus Minerals",
   "Taseko Mines",
   "Copper Mountain Mining",
   "Imperial Metals",
@@ -235,23 +221,13 @@ const COMPANIES = [
   "Los Andes Copper",
   "Marimaca Copper",
   "Solaris Resources",
-  " Filo Mining",
+  "Filo Mining",
   "NGEx Minerals",
   "Josemaria Resources",
   "Candente Copper",
   "Regulus Resources",
   "Alta Copper",
   "Camino Corp",
-  "Junior Copper",
-  "Barrick Gold",
-  "Yamana Gold",
-  "Kinross Gold",
-  "B2Gold",
-  "IAMGOLD",
-  "Eldorado Gold",
-  "Centerra Gold",
-  "SSR Mining",
-  "Pan American Silver",
 ];
 
 const JOBS_PER_COMPANY = 1000;
@@ -499,7 +475,7 @@ function getJob(id) {
 
   const jobType = JOB_TYPES[jobIndexInCompany % JOB_TYPES.length];
 
-  // ─── FIXED DATES ──────────────────────────────────────────────────────────
+  // ─── FIXED DATES (after March 2027) ──────────────────────────────────────
   const datePosted = "2026-11-15";
   const validThrough = "2027-03-31";
 
@@ -518,6 +494,50 @@ function getJob(id) {
     datePosted,
     validThrough,
     country: COUNTRY,
+    schema: {
+      "@context": "https://schema.org/",
+      "@type": "JobPosting",
+      title: title,
+      description: description,
+      datePosted: datePosted,
+      validThrough: validThrough,
+      employmentType: jobType,
+      hiringOrganization: {
+        "@type": "Organization",
+        name: company,
+        sameAs: `https://${company.toLowerCase().replace(/[^a-z0-9]/g, "")}.com`,
+      },
+      jobLocation: {
+        "@type": "Place",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: city,
+          addressRegion: "Canada",
+          addressCountry: "CA",
+        },
+      },
+      applicantLocationRequirements: [
+        {
+          "@type": "Country",
+          name: "Canada",
+          sameAs: "https://en.wikipedia.org/wiki/Canada",
+        },
+      ],
+      jobLocationType: isRemote ? "TELECOMMUTE" : undefined,
+      baseSalary: {
+        "@type": "MonetaryAmount",
+        currency: "CAD",
+        value: {
+          "@type": "QuantitativeValue",
+          minValue: salaryRange.min,
+          maxValue: salaryRange.max,
+          unitText: "MONTH",
+        },
+      },
+      directApply: true,
+      industry: "Information Technology",
+      occupationalCategory: "15-1252.00",
+    },
   };
 }
 
