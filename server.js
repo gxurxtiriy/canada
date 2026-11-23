@@ -13,7 +13,7 @@ const JOBS_PER_PAGE = 20;
 const SITEMAP_CHUNK = 1000;
 const TOTAL_SITEMAPS = Math.ceil(TOTAL_JOBS / SITEMAP_CHUNK);
 const SITE_NAME = "CanadaJobsHub.ca";
-const BASE_URL = process.env.BASE_URL || "https://canadajobs-production.up.railway.app";
+const BASE_URL = process.env.BASE_URL || "https://web-production-e05f5ed4.up.railway.app";
 
 app.use(compression());
 app.use(express.static("public"));
